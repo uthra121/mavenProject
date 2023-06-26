@@ -21,4 +21,21 @@ public class UserService {
 		return userList; 
 	}
 	
+	public void create() {
+		
+		User newUser = new User();
+		newUser.setId(001);
+		newUser.setFirstName("Uthra");
+		newUser.setLastName("Boopathy");
+		newUser.setEmail("uthra@gmail.com");
+		newUser.setPassword("Uthra@12");
+		newUser.setActive(true);
+		
+		UserDAO userDao = new UserDAO();
+		userDao.create(newUser);
+		
+		
+		
+	}
+	
 }
