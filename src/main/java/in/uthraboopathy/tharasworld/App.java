@@ -25,7 +25,7 @@ public class App {
 			newUser1.setId(2);
 			newUser1.setFirstName("Ramya");
 			newUser1.setLastName("Boopathy");
-			newUser1.setEmail("ramys@gmail.com");
+			newUser1.setEmail("ramya@gmail.com");
 			newUser1.setPassword("Uthra@12");
 			newUser1.setActive(true);
 			

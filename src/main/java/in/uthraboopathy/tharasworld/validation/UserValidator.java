@@ -1,49 +1,32 @@
 package in.uthraboopathy.tharasworld.validation;
 
+import in.uthraboopathy.tharasworld.exception.ValidationException;
 import in.uthraboopathy.tharasworld.model.User;
+import in.uthraboopathy.tharasworld.util.StringUtil;
 
 public class UserValidator {
-	
-	public static void validate(User user) throws Exception {
-		
-		if(user==null) {
-			throw new Exception("Invalid user input");
+
+	public static void validate(User user) throws ValidationException {
+
+		if (user == null) {
+			throw new ValidationException("Invalid user input");
 		}
+
+//		if(user.getEmail()==null || "".equals(user.getEmail().trim())) {
+//			
+//			throw new ValidationException("Email cannot be null or empty");
+//			
+//		}
+
+		StringUtil.rejectIfInvalidString(user.getEmail(), "Email");
+
+
+		StringUtil.rejectIfInvalidString(user.getPassword(), "Password");
 		
-		if(user.getEmail()==null || "".equals(user.getEmail().trim())) {
-			
-			throw new Exception("Email cannot be null or empty");
-			
-		}
-		
-	}
-	
-	public static void passwordValidate(User user) throws Exception {
-		
-		if(user==null) {
-			throw new Exception("Invalid user input");
-		}
-		
-		if(user.getPassword()==null || "".equals(user.getPassword().trim())) {
-			
-			throw new Exception("Password cannot be null or empty");
-			
-		}
-		
-	}
-	
-	public static void firstNameValidate(User user) throws Exception {
-		
-		if(user==null) {
-			throw new Exception("Invalid user input");
-		}
-		
-		if(user.getFirstName()==null || "".equals(user.getFirstName().trim())) {
-			
-			throw new Exception("Firstname cannot be null or empty");
-			
-		}
-		
+
+		StringUtil.rejectIfInvalidString(user.getFirstName(), "FirstName");
+
+//		
 	}
 
 }
