@@ -7,5 +7,4 @@ public class UserList {
 	public static User[] listOfUsers = new User[10];
 	
 	
-	
 }

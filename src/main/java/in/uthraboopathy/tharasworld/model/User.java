@@ -1,6 +1,13 @@
 package in.uthraboopathy.tharasworld.model;
 
 public class User {
+	
+	int id;
+	String firstName;
+	String lastName;
+	String email;
+	String password;
+	boolean isActive = true;
 
 	public int getId() {
 		return id;
@@ -50,13 +57,6 @@ public class User {
 		this.isActive = isActive;
 	}
 
-
-	int id;
-	String firstName;
-	String lastName;
-	String email;
-	String password;
-	boolean isActive;
 	
 	public String fullName() {
 		

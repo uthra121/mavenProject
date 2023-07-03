@@ -3,6 +3,7 @@ package in.uthraboopathy.tharasworld.service;
 import in.uthraboopathy.tharasworld.dao.UserDAO;
 
 import in.uthraboopathy.tharasworld.model.User;
+import in.uthraboopathy.tharasworld.validation.UserValidator;
 
 public class UserService {
 
@@ -21,21 +22,35 @@ public class UserService {
 		return userList; 
 	}
 	
-	public void create() {
+	public void create(User newUser1) throws Exception {
 		
-		User newUser = new User();
-		newUser.setId(001);
-		newUser.setFirstName("Uthra");
-		newUser.setLastName("Boopathy");
-		newUser.setEmail("uthra@gmail.com");
-		newUser.setPassword("Uthra@12");
-		newUser.setActive(true);
+		UserValidator.validate(newUser1);
 		
 		UserDAO userDao = new UserDAO();
-		userDao.create(newUser);
-		
-		
+		userDao.create(newUser1);		
 		
 	}
 	
+	public void update(int id, User updateUser) {
+				
+		UserDAO userDao = new UserDAO();
+		userDao.update(1,updateUser);
+		
+	}
+	
+	public void delete() {
+		
+		User deleteUser = new User();
+		
+		UserDAO userDao = new UserDAO();
+		userDao.delete(1);
+		
+	}
+	
+	public User findById(int id) {
+		UserDAO userDao = new UserDAO();
+		User user = userDao.findById(id);
+//		this.printUser(user);
+		return user;
+	}
 }
