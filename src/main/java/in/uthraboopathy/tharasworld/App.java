@@ -1,7 +1,9 @@
 package in.uthraboopathy.tharasworld;
 
-import in.uthraboopathy.tharasworld.model.User;
-import in.uthraboopathy.tharasworld.service.UserService;
+//import in.uthraboopathy.tharasworld.model.User;
+//import in.uthraboopathy.tharasworld.service.UserService;
+import in.uthraboopathy.tharasworld.model.*;
+import in.uthraboopathy.tharasworld.service.*;
 
 public class App {
 
@@ -53,7 +55,29 @@ public class App {
 //		userService.getAll();
 //		
 		
+		////////////////    FOR TASK   ////////////
+		
+		
+		TaskService taskService;
 
+		try {
+			taskService = new TaskService();
+			
+			Task newTask = new Task();
+			newTask.setId(1);
+			newTask.setTaskName("Rc");
+			newTask.setDueDate("09.07.2023");
+			newTask.setActive(true);
+
+			taskService.create(newTask);
+			taskService.getAll();
+
+
+		} catch (Exception e) {
+		
+			e.printStackTrace();
+		}
+		
 
 	}
 
