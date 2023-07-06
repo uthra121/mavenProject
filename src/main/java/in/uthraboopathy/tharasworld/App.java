@@ -66,7 +66,7 @@ public class App {
 			Task newTask = new Task();
 			newTask.setId(1);
 			newTask.setTaskName("Rc");
-			newTask.setDueDate("09.07.2023");
+			newTask.setDueDate("01.10.2023");
 			newTask.setActive(true);
 
 			taskService.create(newTask);
