@@ -5,12 +5,12 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.ResolverStyle;
 
 import in.uthraboopathy.tharasworld.exception.ValidationException;
-import in.uthraboopathy.tharasworld.model.Task;
+import in.uthraboopathy.tharasworld.model.TaskEntity;
 import in.uthraboopathy.tharasworld.util.StringUtil;
 
 public class TaskValidator {
 
-		public static void validate(Task task) throws ValidationException {
+		public static void validate(TaskEntity task) throws ValidationException {
 
 			if (task == null) {
 				throw new ValidationException("Invalid task input");

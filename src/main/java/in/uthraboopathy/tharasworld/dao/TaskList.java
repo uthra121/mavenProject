@@ -1,10 +1,11 @@
 package in.uthraboopathy.tharasworld.dao;
 
 import in.uthraboopathy.tharasworld.model.Task;
+import java.util.*;
 
 public class TaskList {
 	
-	public static Task[] listOfTasks = new Task[10];
+	public static Set<Task> listOfTasks = new HashSet<>();
 
 
 }

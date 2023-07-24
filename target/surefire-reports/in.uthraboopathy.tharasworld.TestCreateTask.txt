@@ -1,0 +1,17 @@
+-------------------------------------------------------------------------------
+Test set: in.uthraboopathy.tharasworld.TestCreateTask
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! - in in.uthraboopathy.tharasworld.TestCreateTask
+in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithValidInput()  Time elapsed: 0.084 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.uthraboopathy.tharasworld.exception.ValidationException: Invalid date or invalid date format(dd.mm.yyyy)
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithValidInput(TestCreateTask.java:30)
+Caused by: in.uthraboopathy.tharasworld.exception.ValidationException: Invalid date or invalid date format(dd.mm.yyyy)
+	at in.uthraboopathy.tharasworld.service.TaskService.create(TaskService.java:39)
+	at in.uthraboopathy.tharasworld.TestCreateTask.lambda$testCreateTaskWithValidInput$0(TestCreateTask.java:31)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

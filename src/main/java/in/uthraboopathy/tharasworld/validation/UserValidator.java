@@ -4,6 +4,7 @@ import in.uthraboopathy.tharasworld.exception.ValidationException;
 import in.uthraboopathy.tharasworld.model.User;
 import in.uthraboopathy.tharasworld.util.StringUtil;
 
+
 public class UserValidator {
 
 	public static void validate(User user) throws ValidationException {

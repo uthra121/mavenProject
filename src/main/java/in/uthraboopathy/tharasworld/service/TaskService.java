@@ -3,6 +3,7 @@ package in.uthraboopathy.tharasworld.service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Set;
 
 import in.uthraboopathy.tharasworld.dao.TaskDAO;
 import in.uthraboopathy.tharasworld.exception.ValidationException;
@@ -11,15 +12,15 @@ import in.uthraboopathy.tharasworld.validation.TaskValidator;
 
 public class TaskService {
 
-	public Task[] getAll() {
+	public Set<Task> getAll() {
 
 		TaskDAO taskDao = new TaskDAO();
 
-		Task[] taskList = taskDao.findAll();
+		Set<Task> taskList = taskDao.findAll();
 
-		for (int i = 0; i < taskList.length; i++) {
+		for (Task tasklist:taskList) {
 
-			System.out.println(taskList[i]);
+			System.out.println(tasklist);
 
 		}
 
@@ -54,26 +55,26 @@ public class TaskService {
 	 * @param updateTask
 	 */
 
-	public void update(int id, Task updateTask) {
-
-		TaskDAO taskDao = new TaskDAO();
-		taskDao.update(1, updateTask);
-
-	}
-
-	public void delete() {
-
-		Task deleteTask = new Task();
-
-		TaskDAO taskDao = new TaskDAO();
-		taskDao.delete(1);
-
-	}
-
-	public Task findById(int id) {
-		TaskDAO taskDao = new TaskDAO();
-		Task task = taskDao.findById(id);
-		return task;
-	}
+//	public void update(int id, TaskEntity updateTask) {
+//
+//		TaskDAO taskDao = new TaskDAO();
+//		taskDao.update(1, updateTask);
+//
+//	}
+//
+//	public void delete() {
+//
+//		TaskEntity deleteTask = new TaskEntity();
+//
+//		TaskDAO taskDao = new TaskDAO();
+//		taskDao.delete(1);
+//
+//	}
+//
+//	public TaskEntity findById(int id) {
+//		TaskDAO taskDao = new TaskDAO();
+//		TaskEntity task = taskDao.findById(id);
+//		return task;
+//	}
 
 }

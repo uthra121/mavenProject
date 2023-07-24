@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.uthraboopathy.tharasworld.TestCreateUser" time="0.001" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="in.uthraboopathy.tharasworld.TestCreateTask" time="0.106" tests="9" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,12 +58,26 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithEmailNull" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithEmailEmpty" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithPasswordEmpty" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithValidInput" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithFirstNameNull" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithPasswordNull" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithFirstNameEmpty" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
-  <testcase name="in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithInvalidInput" classname="in.uthraboopathy.tharasworld.TestCreateUser" time="0"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithInvalidInput" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.002"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskNameEmpty" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithValidInput" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.084">
+    <failure message="Unexpected exception thrown: in.uthraboopathy.tharasworld.exception.ValidationException: Invalid date or invalid date format(dd.mm.yyyy)" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Unexpected exception thrown: in.uthraboopathy.tharasworld.exception.ValidationException: Invalid date or invalid date format(dd.mm.yyyy)
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithValidInput(TestCreateTask.java:30)
+Caused by: in.uthraboopathy.tharasworld.exception.ValidationException: Invalid date or invalid date format(dd.mm.yyyy)
+	at in.uthraboopathy.tharasworld.service.TaskService.create(TaskService.java:39)
+	at in.uthraboopathy.tharasworld.TestCreateTask.lambda$testCreateTaskWithValidInput$0(TestCreateTask.java:31)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+</failure>
+  </testcase>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskDueDateEmpty" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.001"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskNameNull" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.003"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskDueDateNull" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.002"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskDueDateIsPast" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.002"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskDueDateFormat" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.002"/>
+  <testcase name="in.uthraboopathy.tharasworld.TestCreateTask.testCreateTaskWithTaskDueDateInValid" classname="in.uthraboopathy.tharasworld.TestCreateTask" time="0.001"/>
 </testsuite>
