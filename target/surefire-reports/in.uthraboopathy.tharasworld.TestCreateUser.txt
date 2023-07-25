@@ -1,4 +1,18 @@
 -------------------------------------------------------------------------------
 Test set: in.uthraboopathy.tharasworld.TestCreateUser
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in in.uthraboopathy.tharasworld.TestCreateUser
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.862 s <<< FAILURE! - in in.uthraboopathy.tharasworld.TestCreateUser
+in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithValidInput()  Time elapsed: 1.857 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Unexpected exception thrown: java.lang.RuntimeException
+	at org.junit.jupiter.api.AssertDoesNotThrow.createAssertionFailedError(AssertDoesNotThrow.java:83)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:54)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:37)
+	at org.junit.jupiter.api.Assertions.assertDoesNotThrow(Assertions.java:3135)
+	at in.uthraboopathy.tharasworld.TestCreateUser.testCreateUserWithValidInput(TestCreateUser.java:26)
+Caused by: java.lang.RuntimeException
+	at in.uthraboopathy.tharasworld.dao.UserDAO.create(UserDAO.java:77)
+	at in.uthraboopathy.tharasworld.service.UserService.create(UserService.java:30)
+	at in.uthraboopathy.tharasworld.TestCreateUser.lambda$testCreateUserWithValidInput$0(TestCreateUser.java:27)
+	at org.junit.jupiter.api.AssertDoesNotThrow.assertDoesNotThrow(AssertDoesNotThrow.java:50)
+	... 16 more
+

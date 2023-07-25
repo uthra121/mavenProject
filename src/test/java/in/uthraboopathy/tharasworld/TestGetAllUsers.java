@@ -22,4 +22,17 @@ public class TestGetAllUsers {
 		User userList = userService.findById(1);
 		System.out.println(userList);
 	}
+	
+	@Test
+	public void testUpdateUser() {
+		UserService userService = new UserService();
+		
+		User updateUser = new User();
+		
+		updateUser.setFirstName("B. Uthra");
+		updateUser.setLastName("Boopathi Kannan");
+		
+		userService.update(1, updateUser);;
+		
+	}
 }

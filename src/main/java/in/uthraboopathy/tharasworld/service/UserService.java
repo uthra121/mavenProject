@@ -31,12 +31,12 @@ public class UserService {
 		
 	}
 	
-//	public void update(int id, UserEntity updateUser) {
-//				
-//		UserDAO userDao = new UserDAO();
-//		userDao.update(1,updateUser);
-//		
-//	}
+	public void update(int id, User updateUser) {
+				
+		UserDAO userDao = new UserDAO();
+		userDao.update(1,updateUser);
+		
+	}
 //	
 //	public void delete() {
 //		

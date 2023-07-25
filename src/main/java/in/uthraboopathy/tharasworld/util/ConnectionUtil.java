@@ -1,25 +1,29 @@
 package in.uthraboopathy.tharasworld.util;
 
 import java.sql.Connection;
+
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.sql.*; 
 
 public class ConnectionUtil {
 
 	public static Connection getConnection() {
+		
+		Dotenv env = Dotenv.load();
+		
+		String url = env.get("DATABASE_HOST");
+		String username = env.get("DATABASE_USERNAME");
+		String password = env.get("DATABASE_PASSWORD");
+		
 		Connection connection = null;
-		String url = null;
-		String username = null;
-		String password = null;
+
 		
 		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			connection = DriverManager.getConnection(url, username, password); 
-			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection(
-					 "jdbc:mysql://aws.connect.psdb.cloud/demoproject?sslMode=VERIFY_IDENTITY",
-					  "1l6sjx208mmkcmiirnrl",
-					  "pscale_pw_OYW0Jd66f14cK1n8Gkq8lCLCSWMcPoDn6LVEStsks45");
+			connection = DriverManager.getConnection(url, username, password); 
+			
+			
 			
 		} catch(Exception e) {
 			e.printStackTrace();

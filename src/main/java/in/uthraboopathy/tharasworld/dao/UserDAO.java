@@ -84,24 +84,24 @@ public class UserDAO implements UserInterface{
 	}
 
 
-
 	@Override
-	public void update(User updateuser) {
+	public void update(int id, User updateuser) {
 		Connection connection = null;
 		PreparedStatement ps = null;
 		
 		try {
-			String query = "UPDATE users SET first_name = ?, last_name = ?, password = ? ";
+			String query = "UPDATE users SET first_name = ?, last_name = ? WHERE is_active = 1 AND id = ?";
 			connection = ConnectionUtil.getConnection();
 			ps = connection.prepareStatement(query);
 			
+
+			
 			ps.setString(1, updateuser.getFirstName());
 			ps.setString(2,  updateuser.getLastName());
-			ps.setString(3,  updateuser.getEmail());
-			
+			ps.setInt(3, id);
 			ps.executeUpdate();
 			
-			System.out.println("User has been created successfully");
+			System.out.println("User has been updated successfully");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
