@@ -22,10 +22,8 @@ public class TestCreateTask {
 		TaskService taskService = new TaskService();
 		
 		Task newTask = new Task();
-		newTask.setId(3);
-		newTask.setTaskName("RC");
-		newTask.setDueDate("09.07.2023");
-		newTask.setActive(true);
+		newTask.setTaskName("FOP");
+		newTask.setDueDate("09.08.2023");
 		
 		assertDoesNotThrow(()->{
 			taskService.create(newTask);

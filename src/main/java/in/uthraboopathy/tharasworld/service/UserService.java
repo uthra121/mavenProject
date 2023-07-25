@@ -31,8 +31,10 @@ public class UserService {
 		
 	}
 	
-	public void update(int id, User updateUser) {
+	public void update(int id, User updateUser) throws Exception  {
 				
+		UserValidator.validate(updateUser);
+		
 		UserDAO userDao = new UserDAO();
 		userDao.update(1,updateUser);
 		

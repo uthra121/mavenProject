@@ -8,6 +8,7 @@ import java.util.Set;
 import in.uthraboopathy.tharasworld.dao.TaskDAO;
 import in.uthraboopathy.tharasworld.exception.ValidationException;
 import in.uthraboopathy.tharasworld.model.Task;
+import in.uthraboopathy.tharasworld.model.User;
 import in.uthraboopathy.tharasworld.validation.TaskValidator;
 
 public class TaskService {
@@ -17,12 +18,6 @@ public class TaskService {
 		TaskDAO taskDao = new TaskDAO();
 
 		Set<Task> taskList = taskDao.findAll();
-
-		for (Task tasklist:taskList) {
-
-			System.out.println(tasklist);
-
-		}
 
 		return taskList;
 	}
@@ -55,12 +50,13 @@ public class TaskService {
 	 * @param updateTask
 	 */
 
-//	public void update(int id, TaskEntity updateTask) {
-//
-//		TaskDAO taskDao = new TaskDAO();
-//		taskDao.update(1, updateTask);
-//
-//	}
+	public void update(int id, Task updateTask) {
+
+		
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.update(1, updateTask);
+
+	}
 //
 //	public void delete() {
 //
@@ -71,10 +67,10 @@ public class TaskService {
 //
 //	}
 //
-//	public TaskEntity findById(int id) {
-//		TaskDAO taskDao = new TaskDAO();
-//		TaskEntity task = taskDao.findById(id);
-//		return task;
-//	}
+	public Task findById(int id) {
+		TaskDAO taskDao = new TaskDAO();
+		Task task = taskDao.findById(id);
+		return task;
+	}
 
 }
