@@ -19,10 +19,10 @@ public class UserDAO implements UserInterface{
 		
 		try {
 			
-			String query = "SELECT * FROM Users WHERE isActive=1";
+			String query = "SELECT * FROM users WHERE is_active = 1";
 			con = ConnectionUtil.getConnection();
 			ps = con.prepareStatement(query);
-//			ResultSet rs = ps.executeQuery();
+			rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				User user = new User();
@@ -48,31 +48,69 @@ public class UserDAO implements UserInterface{
 //		UserEntity[] userList = UserList.listOfUsers;
 //		return userList;
 	}
-	
-	
-	
+
+
+
+	@Override
 	public void create(User newuser) {
-		
-//		UserList.listOfUsers[0] = newuser;
-		
-		Set<User> userList = UserList.listOfUsers;
 
-		userList.add((User)newuser);
+		Connection connection = null;
+		PreparedStatement ps = null;
+		
+		try {
+			String query = "INSERT INTO users (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+			connection = ConnectionUtil.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(1, newuser.getFirstName());
+			ps.setString(2,  newuser.getLastName());
+			ps.setString(3,  newuser.getEmail());
+			ps.setString(4,  newuser.getPassword());
+			
+			ps.executeUpdate();
+			
+			System.out.println("User has been created successfully");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+			
+		} finally {
+			ConnectionUtil.close(connection, ps);
+		}
+
+		
 	}
 
 
 
 	@Override
-	public void create() {
-		// TODO Auto-generated method stub
+	public void update(User updateuser) {
+		Connection connection = null;
+		PreparedStatement ps = null;
 		
-	}
-
-
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
+		try {
+			String query = "UPDATE users SET first_name = ?, last_name = ?, password = ? ";
+			connection = ConnectionUtil.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setString(1, updateuser.getFirstName());
+			ps.setString(2,  updateuser.getLastName());
+			ps.setString(3,  updateuser.getEmail());
+			
+			ps.executeUpdate();
+			
+			System.out.println("User has been created successfully");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+			
+		} finally {
+			ConnectionUtil.close(connection, ps);
+		}
 		
 	}
 
@@ -87,9 +125,41 @@ public class UserDAO implements UserInterface{
 
 
 	@Override
-	public Set<User> findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public User findById(int id) {
+
+		Connection connection = null;
+		PreparedStatement ps = null;
+		User user = null;
+		ResultSet rs = null;
+		
+		try {
+			String query = "SELECT * FROM users WHERE is_active = 1 AND id = ?";
+			connection = ConnectionUtil.getConnection();
+			ps = connection.prepareStatement(query);
+			
+			ps.setInt(1, id);
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setFirstName(rs.getString("first_name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setEmail(rs.getString("email"));
+				user.setPassword(rs.getString("password"));
+				user.setActive(rs.getBoolean("is_active"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+			
+		} finally {
+			ConnectionUtil.close(connection, ps, rs);
+		}
+		return user;
+		
 	}
 
 

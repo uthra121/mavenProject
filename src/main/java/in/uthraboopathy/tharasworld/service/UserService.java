@@ -22,12 +22,12 @@ public class UserService {
 		return userList; 
 	}
 	
-	public void create(User newUser1) throws Exception {
+	public void create(User newUser) throws Exception {
 		
-		UserValidator.validate(newUser1);
+		UserValidator.validate(newUser);
 		
 		UserDAO userDao = new UserDAO();
-		userDao.create(newUser1);		
+		userDao.create(newUser);		
 		
 	}
 	
@@ -47,10 +47,10 @@ public class UserService {
 //		
 //	}
 //	
-//	public UserEntity findById(int id) {
-//		UserDAO userDao = new UserDAO();
-//		UserEntity user = userDao.findById(id);
-////		this.printUser(user);
-//		return user;
-//	}
+	public User findById(int id) {
+		UserDAO userDao = new UserDAO();
+		User user = userDao.findById(id);
+//		this.printUser(user);
+		return user;
+	}
 }
