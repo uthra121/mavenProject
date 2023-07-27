@@ -57,16 +57,16 @@ public class TaskService {
 		taskDao.update(1, updateTask);
 
 	}
-//
-//	public void delete() {
-//
-//		TaskEntity deleteTask = new TaskEntity();
-//
-//		TaskDAO taskDao = new TaskDAO();
-//		taskDao.delete(1);
-//
-//	}
-//
+
+	public void delete(int id) {
+
+		Task deleteTask = new Task();
+
+		TaskDAO taskDao = new TaskDAO();
+		taskDao.delete(1);
+
+	}
+
 	public Task findById(int id) {
 		TaskDAO taskDao = new TaskDAO();
 		Task task = taskDao.findById(id);

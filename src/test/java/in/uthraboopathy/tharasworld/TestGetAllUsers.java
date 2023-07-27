@@ -1,5 +1,6 @@
 package in.uthraboopathy.tharasworld;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -28,24 +29,30 @@ public class TestGetAllUsers {
 	}
 	
 	@Test
-	public void testUpdateUser() throws Exception {
+	public void testUpdateUser() {
 
 		UserService userService = new UserService();
 		
 		User updateUser = new User();
 		
-		updateUser.setFirstName("");
+		updateUser.setFirstName("Uthra");
 		updateUser.setLastName("Boopathi Kannan");
+		updateUser.setEmail("uthra@gmail.com");
+		updateUser.setPassword("Uthra@12");
 		
-//		userService.update(1, updateUser);
-		
-		Exception exception = assertThrows(ValidationException.class, () -> {
+		assertDoesNotThrow(() -> {
 			userService.update(1, updateUser);
 		});
-		String expectedMessage = "FirstName cannot be null or empty";
-		String actualMessage = exception.getMessage();
-
-		assertTrue(expectedMessage.equals(actualMessage));
+		
+	}
+	
+	
+	@Test
+	public void deleteUser() {
+		
+		UserService userService = new UserService();
+		
+		userService.delete(1);
 		
 	}
 }

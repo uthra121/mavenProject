@@ -117,9 +117,28 @@ public class UserDAO implements UserInterface{
 
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
+	public void delete(int id) {
+		Connection con = null;
+		PreparedStatement ps = null;
 		
+		try {
+			String query = "UPDATE users SET is_active = 0 WHERE is_active = 1 AND id = ?";
+			con = ConnectionUtil.getConnection();
+			ps = con.prepareStatement(query);
+			
+			ps.setInt(1, id);
+			ps.executeUpdate();
+			
+			System.out.println("User has been deleted successfully");
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			throw new RuntimeException();
+		}
+		finally {
+			ConnectionUtil.close(con, ps);
+		}
 	}
 
 

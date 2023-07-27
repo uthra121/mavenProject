@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import in.uthraboopathy.tharasworld.model.Task;
 import in.uthraboopathy.tharasworld.service.TaskService;
+import in.uthraboopathy.tharasworld.service.UserService;
 
 public class TestGetAllTasks {
 
@@ -34,6 +35,16 @@ public class TestGetAllTasks {
 		
 		taskService.update(1, updateTask);
 		
+		
+	}
+	
+	
+	@Test
+	public void testDeleteTask() {
+		
+		TaskService taskService = new TaskService();
+		
+		taskService.delete(1);
 		
 	}
 	

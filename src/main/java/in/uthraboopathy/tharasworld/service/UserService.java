@@ -31,24 +31,22 @@ public class UserService {
 		
 	}
 	
-	public void update(int id, User updateUser) throws Exception  {
+	public void update(int id, User updateUser) throws Exception {
 				
 		UserValidator.validate(updateUser);
 		
 		UserDAO userDao = new UserDAO();
-		userDao.update(1,updateUser);
+		userDao.update(id,updateUser);
 		
 	}
-//	
-//	public void delete() {
-//		
-//		User deleteUser = new User();
-//		
-//		UserDAO userDao = new UserDAO();
-//		userDao.delete(1);
-//		
-//	}
-//	
+	
+	public void delete(int id) {
+			
+		UserDAO userDao = new UserDAO();
+		userDao.delete(id);
+		
+	}
+	
 	public User findById(int id) {
 		UserDAO userDao = new UserDAO();
 		User user = userDao.findById(id);
